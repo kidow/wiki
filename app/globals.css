@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .notion-code {
+    @apply rounded-[3px] bg-gray-100 px-[5.44px] py-[2.72px] text-[85%] text-red-400;
+  }
+}

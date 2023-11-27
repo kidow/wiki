@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from 'react'
 import Link from 'next/link'
+import Spinner from 'components/Spinner'
 
 interface Props {
   nextCursor: string
@@ -34,9 +35,13 @@ export default function Pagination(props: Props) {
       ))}
       {!!nextCursor && (
         <li>
-          <button onClick={get} disabled={isLoading}>
-            더 보기
-          </button>
+          {isLoading ? (
+            <Spinner className="h-5 w-5" />
+          ) : (
+            <button onClick={get} disabled={isLoading}>
+              더 보기
+            </button>
+          )}
         </li>
       )}
     </>

@@ -20,7 +20,7 @@ async function getData() {
 export default async function Home() {
   const { results, next_cursor } = await getData()
   return (
-    <ul className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <ul className="grid gap-6 pb-40 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {results.map((item) => (
         <li key={item.id}>
           <Link href={`/w/${item.id}`}>

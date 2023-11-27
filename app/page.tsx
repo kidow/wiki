@@ -5,23 +5,23 @@ import Pagination from './pagination'
 
 export const dynamic = 'force-dynamic'
 
-async function getData() {
-  const notion = new Client({ auth: process.env.NOTION_SECRET_KEY })
-  const data = (await notion.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID,
-    sorts: [{ property: '생성일', direction: 'descending' }],
-    ...(process.env.NODE_ENV === 'production'
-      ? { filter: { property: '배포', checkbox: { equals: true } } }
-      : {})
-  })) as unknown as WikiList
-  return data
-}
+// async function getData() {
+//   const notion = new Client({ auth: process.env.NOTION_SECRET_KEY })
+//   const data = (await notion.databases.query({
+//     database_id: process.env.NOTION_DATABASE_ID,
+//     sorts: [{ property: '생성일', direction: 'descending' }],
+//     ...(process.env.NODE_ENV === 'production'
+//       ? { filter: { property: '배포', checkbox: { equals: true } } }
+//       : {})
+//   })) as unknown as WikiList
+//   return data
+// }
 
 export default async function Home() {
-  const { results, next_cursor } = await getData()
+  // const { results, next_cursor } = await getData()
   return (
     <ul className="grid gap-6 pb-40 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-      {results.map((item) => (
+      {/* {results.map((item) => (
         <li key={item.id}>
           <Link href={`/w/${item.id}`}>
             <span className="font-semibold hover:underline">
@@ -30,7 +30,7 @@ export default async function Home() {
           </Link>
         </li>
       ))}
-      <Pagination nextCursor={next_cursor} />
+      <Pagination nextCursor={next_cursor} /> */}
     </ul>
   )
 }
